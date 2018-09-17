@@ -2,20 +2,22 @@
   opening-hand-simulation works!
 </p>
 <div>
-  <h2>Deck</h2>
+    <button routerLink="/">Edit Deck</button> 
+</div>
+<div>
+  <h2>Your Deck</h2>
   {{this.cardParser.cards}}
 </div>
 <div>
   <h2>Hand</h2>
   <div>
     <button (click)="newHand();">New hand</button>
-
   </div>
   <div>
-    <div>
+    <p>
       {{hand}}
 
-    </div>
+    </p>
     <div>
       <button *ngFor="let option of handCategories" (click)="recordHand(hand, option.name)">{{option.name}}</button>
 

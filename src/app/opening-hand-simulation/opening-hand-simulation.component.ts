@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { CardParserService } from "../card-parser.service";
+import { Router } from "@angular/router";
+
 function shuffle(array) {
   //Fisher-Yates shuffle
   var i = 0,
@@ -29,7 +31,7 @@ class HandRecord {
   styleUrls: ["./opening-hand-simulation.component.css"]
 })
 export class OpeningHandSimulationComponent implements OnInit {
-  constructor(private cardParser: CardParserService) {}
+  constructor(private cardParser: CardParserService, private router: Router) {}
   cards: string[] = [];
   hand: string[] = [];
   history: HandRecord[] = [];
@@ -39,7 +41,11 @@ export class OpeningHandSimulationComponent implements OnInit {
   handCategories = [{ name: "Good" }, { name: "Bad" }];
 
   ngOnInit() {
-    this.cards = this.cardParser.cards.slice(0, this.cardParser.cards.length);
+    try {
+      this.cards = this.cardParser.cards.slice(0, this.cardParser.cards.length);
+    } catch (err) {
+      this.router.navigate(['/'])
+    }
     this.newHand();
   }
 
