@@ -4,10 +4,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CardParserService {
-
+  cards: string[];
   constructor() { }
 
   parseDecklist(cards: string) {
-    return cards.trim().split('\n').filter((x) => {return x});
+    this.cards = cards.trim().split('\n').filter((x) => {return x});
+    return this.cards;
   }
 }

@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
+import { OpeningHandSimulationComponent } from './opening-hand-simulation/opening-hand-simulation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    OpeningHandSimulationComponent
   ],
   imports: [
     BrowserModule,
