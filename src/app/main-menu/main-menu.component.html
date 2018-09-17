@@ -1,0 +1,22 @@
+<div>
+  <p>
+    main-menu works!
+  </p>
+  <div>
+    <h2>Paste decklist here</h2>
+    <textarea [(ngModel)]="rawListText" (ngModelChange)="parse();" rows=15 cols=20></textarea>
+
+  </div>
+  <div>
+    <h2>Parsed list</h2>
+
+    <ul>
+      <li *ngFor="let card of cards">
+        {{card}}
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
