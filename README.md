@@ -1,3 +1,14 @@
+# EDH Deckbuilding Thermometer
+
+Do you play the Commander format of  Magic: the Gathering? Do you have trouble tuning your decks to do what you want? This app is for you!
+
+Simply paste in your decklist and click 'Simulate' to get started.
+
+## How to use it
+
+You will be presented with an opening hand of 7 or 8 cards (configurable for 1v1 or multiplayer). Select either 'Keep' or another button indicating the flaw(s) in that hand. Click 'Next' to be presented with the next hand. At any time you can switch to the summary of all reviewed hands in order to identify areas of your deck that need tuning.
+
+
 # EdhDeckbuildingThermometer
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.
