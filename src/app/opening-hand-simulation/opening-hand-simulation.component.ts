@@ -52,6 +52,7 @@ export class OpeningHandSimulationComponent implements OnInit {
   newHand() {
     shuffle(this.cards);
     this.hand = this.cards.slice(0, 7);
+    this.hand.sort();
   }
 
   recordHand(hand: string[], message: string) {
