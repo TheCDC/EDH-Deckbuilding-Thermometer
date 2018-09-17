@@ -1,8 +1,12 @@
 # EDH Deckbuilding Thermometer
 
-Do you play the Commander format of  Magic: the Gathering? Do you have trouble tuning your decks to do what you want? This app is for you!
+Do you play the Commander format of  Magic: the Gathering? Are your deck to clunky? This app is for you!
 
 Simply paste in your decklist and click 'Simulate' to get started.
+
+## How it works
+
+This application simulates drawing opening hands and you mark each one as good or bad or other categories. Then you can view the summary of all the hands you've reviewed in order to identify common weaknesses of the your hands.
 
 ## How to use it
 
