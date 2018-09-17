@@ -44,7 +44,7 @@ export class OpeningHandSimulationComponent implements OnInit {
     try {
       this.cards = this.cardParser.cards.slice(0, this.cardParser.cards.length);
     } catch (err) {
-      this.router.navigate(['/'])
+      this.router.navigate(["/"]);
     }
     this.newHand();
   }
@@ -64,7 +64,7 @@ export class OpeningHandSimulationComponent implements OnInit {
     let scores = Object.keys(this.scoreboard).map(k => {
       return [this.scoreboard[k], k];
     });
-    scores.sort((a, b) => {
+    scores.sort((a: number[], b: number[]) => {
       return a[0] - b[0];
     });
     scores.reverse();
