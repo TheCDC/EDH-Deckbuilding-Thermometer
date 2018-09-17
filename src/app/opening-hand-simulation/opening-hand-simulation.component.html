@@ -1,7 +1,36 @@
 <p>
   opening-hand-simulation works!
 </p>
-
 <div>
+  <h2>Deck</h2>
   {{this.cardParser.cards}}
+</div>
+<div>
+  <h2>Hand</h2>
+  <div>
+    <button (click)="newHand();">New hand</button>
+
+  </div>
+  <div>
+    <div>
+      {{hand}}
+
+    </div>
+    <div>
+      <button *ngFor="let option of handCategories" (click)="recordHand(hand, option.name)">{{option.name}}</button>
+
+    </div>
+  </div>
+  <div>
+    <h3>Summary</h3>
+    <p *ngFor="let pair of scoreboardArray">
+      {{pair[0]}}: {{pair[1]}}
+    </p>
+  </div>
+  <div>
+    <h3>History</h3>
+    <p *ngFor="let record of history">
+      {{record.message}} | {{record.hand}}
+    </p>
+  </div>
 </div>
