@@ -4,6 +4,18 @@
   </p>
   <div>
     <h2>Paste decklist here</h2>
+    <h3>Format:</h3>
+    <pre>
+20x Island
+4x Ancestral Recall
+4x Black Lotus
+4x Channel
+4x Fireball
+4x Punishing Fire
+4x Grove of the Burnwillows
+4x Frantic Search
+4x Mox Sapphire
+    </pre>
     <textarea [(ngModel)]="rawListText" (ngModelChange)="parse();" rows=15 cols=20></textarea>
 
   </div>
@@ -19,7 +31,7 @@
 
   </div>
   <div>
-    <button routerLink="/simulate">That's my deck!</button> 
+    <button routerLink="/simulate">That's my deck!</button>
   </div>
 
 </div>

@@ -60,7 +60,6 @@ export class OpeningHandSimulationComponent implements OnInit {
     if (this.scoreboard[message] == undefined) {
       this.scoreboard[message] = 0;
     }
-    console.log(this.scoreboard);
     this.scoreboard[message] += 1;
     let scores = Object.keys(this.scoreboard).map(k => {
       return [this.scoreboard[k], k];
