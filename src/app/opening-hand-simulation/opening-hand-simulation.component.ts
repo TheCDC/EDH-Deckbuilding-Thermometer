@@ -35,6 +35,7 @@ export class OpeningHandSimulationComponent implements OnInit {
   cards: string[] = [];
   hand: string[] = [];
   history: HandRecord[] = [];
+  showHistory: boolean = true;
   scoreboardByCategory: { [message: string]: number } = {};
   scoreboardByCategoryArray = [];
 
@@ -42,6 +43,7 @@ export class OpeningHandSimulationComponent implements OnInit {
   scoreboardByCardArray = [];
 
   handCategories = [{ name: "Good" }, { name: "Bad" }];
+
 
   ngOnInit() {
     try {
@@ -99,9 +101,7 @@ export class OpeningHandSimulationComponent implements OnInit {
           return [name, categoryCounts];
         }
       );
-      this.scoreboardByCardArray.sort((a: any[], b: any[]) => {
-        return +(a[0] > b[0]);
-      });
+      this.scoreboardByCardArray.sort();
     });
 
     // new hand

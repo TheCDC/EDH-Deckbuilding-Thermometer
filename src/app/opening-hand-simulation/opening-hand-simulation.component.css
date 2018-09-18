@@ -1,6 +1,14 @@
 .component {
   background-color: grey;
+  height: 100%;
+  margin: 0.5em;
+  padding: 0.1em;
 }
+
+.handContainer{
+    height: 12em;
+}
+
 
 .hand {
   display: flex;
@@ -11,9 +19,9 @@
   margin: 0.5em;
   padding: 0.5em;
 
+
   background-color: lightgrey;
 }
-
 
 .handCategories {
   display: flex;
@@ -25,4 +33,18 @@
 .handCategories > button {
   flex-grow: 1;
   margin: 0.1em;
+}
+
+h3 {
+  background-color: lightgray;
+  color: black;
+  text-align: center;
+  padding: 1em;
+
+}
+
+h4 {
+  text-align: center;
+  background-color: #353434;
+
 }
