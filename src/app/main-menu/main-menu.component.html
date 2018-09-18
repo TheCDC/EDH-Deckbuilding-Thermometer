@@ -16,7 +16,14 @@
 4x Frantic Search
 4x Mox Sapphire
     </pre>
-    <textarea [(ngModel)]="rawListText" (ngModelChange)="parse();" rows=15 cols=20></textarea>
+    <div>
+      <div>
+          <button (click)="clearDecklist();">Clear</button>
+
+      </div>
+      <textarea [(ngModel)]="cardParser.rawCardText" (ngModelChange)="parse();" rows=15 cols=20></textarea>
+
+    </div>
 
   </div>
   <div>

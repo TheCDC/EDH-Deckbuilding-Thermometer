@@ -7,12 +7,14 @@ import { AppRoutingModule } from "./app-routing/app-routing.module";
 import { AppComponent } from "./app.component";
 import { MainMenuComponent } from "./main-menu/main-menu.component";
 import { OpeningHandSimulationComponent } from "./opening-hand-simulation/opening-hand-simulation.component";
+import { CardDisplayComponent } from './card-display/card-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainMenuComponent,
-    OpeningHandSimulationComponent
+    OpeningHandSimulationComponent,
+    CardDisplayComponent
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],

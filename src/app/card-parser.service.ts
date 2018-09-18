@@ -9,11 +9,17 @@ function hasNumber(myString) {
   providedIn: "root"
 })
 export class CardParserService {
+  rawCardText: string = '';
   cards: string[];
   constructor() {}
 
-  parseDecklist(cards: string) {
-    var cardLines = cards
+  consumeCardText(s: string){
+    this.rawCardText = s;
+
+  }
+
+  parseDecklist() {
+    var cardLines = this.rawCardText
       .trim()
       .split("\n")
       .filter(x => {

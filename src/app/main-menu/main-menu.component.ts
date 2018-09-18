@@ -10,8 +10,16 @@ export class MainMenuComponent implements OnInit {
   rawListText: string = "";
   constructor(private cardParser: CardParserService) {}
 
-  parse() {
-    this.cards = this.cardParser.parseDecklist(this.rawListText);
+  parse():void {
+    this.cards = this.cardParser.parseDecklist();
+    console.log('parsed');
+    console.log(this.rawListText);
+
+  }
+
+  clearDecklist():void{
+    this.cardParser.rawCardText = '';
+    this.parse();
   }
 
   ngOnInit() {

@@ -35,14 +35,14 @@ export class OpeningHandSimulationComponent implements OnInit {
   cards: string[] = [];
   hand: string[] = [];
   history: HandRecord[] = [];
-  scoreboard: { [message: string]: number } = {};
+  scoreboardByCategory: { [message: string]: number } = {};
   scoreboardArray = [];
 
   handCategories = [{ name: "Good" }, { name: "Bad" }];
 
   ngOnInit() {
     try {
-      this.cards = this.cardParser.cards.slice(0, this.cardParser.cards.length);
+      this.cards = this.cardParser.parseDecklist().slice(0, this.cardParser.cards.length);
     } catch (err) {
       this.router.navigate(["/"]);
     }
@@ -57,12 +57,12 @@ export class OpeningHandSimulationComponent implements OnInit {
 
   recordHand(hand: string[], message: string) {
     this.history.unshift(new HandRecord(hand, message));
-    if (this.scoreboard[message] == undefined) {
-      this.scoreboard[message] = 0;
+    if (this.scoreboardByCategory[message] == undefined) {
+      this.scoreboardByCategory[message] = 0;
     }
-    this.scoreboard[message] += 1;
-    let scores = Object.keys(this.scoreboard).map(k => {
-      return [this.scoreboard[k], k];
+    this.scoreboardByCategory[message] += 1;
+    let scores = Object.keys(this.scoreboardByCategory).map(k => {
+      return [this.scoreboardByCategory[k], k];
     });
     scores.sort((a: number[], b: number[]) => {
       return a[0] - b[0];
