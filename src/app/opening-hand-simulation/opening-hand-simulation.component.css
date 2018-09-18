@@ -1,0 +1,25 @@
+.hand {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-shrink: 1;
+  flex-basis: 0%;
+}
+
+.hand img{
+    width: 100%;
+}
+
+.handCategories{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: space-around
+  
+}
+.handCategories > button{
+    flex-grow: 1;
+    margin: 2em;
+    
+}

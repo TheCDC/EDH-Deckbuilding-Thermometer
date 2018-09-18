@@ -1,3 +1,10 @@
-<p>
-  card-display works!
-</p>
+<div>
+  <div>
+    <!-- {{objstr}} -->
+
+  </div>
+  <div *ngIf="cardJSON">
+    <img *ngIf="cardJSON.image_uris.small" src="{{cardJSON.image_uris.small}}" alt="{{cardname}}">
+  </div>
+
+</div>

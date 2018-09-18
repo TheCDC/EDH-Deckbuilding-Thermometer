@@ -2,7 +2,7 @@
   opening-hand-simulation works!
 </p>
 <div>
-    <button routerLink="/">Back</button> 
+  <button routerLink="/">Back</button>
 </div>
 <div>
   {{cardParser.rawCardText}}
@@ -17,20 +17,39 @@
     <button (click)="newHand();">New hand</button>
   </div>
   <div>
-    <p>
-      {{hand}}
-
-    </p>
     <div>
+      {{hand}}
+      <div class="hand">
+
+        <div *ngFor="let name of hand">
+          <app-card-display [cardname]="name"></app-card-display>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="handCategories">
       <button *ngFor="let option of handCategories" (click)="recordHand(hand, option.name)">{{option.name}}</button>
 
     </div>
   </div>
   <div>
     <h3>Summary</h3>
-    <p *ngFor="let pair of scoreboardArray">
+    <h4>Global</h4>
+    <p *ngFor="let pair of scoreboardByCategoryArray">
       {{pair[0]}}: {{pair[1]}}
     </p>
+    <h4>By card</h4>
+    <div>
+      <div *ngFor="let item of scoreboardByCardArray">
+        {{item[0]}}
+        <ul>
+          <li *ngFor="let i of item[1]">
+            {{i}}
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
   <div>
     <h3>History</h3>

@@ -36,13 +36,18 @@ export class OpeningHandSimulationComponent implements OnInit {
   hand: string[] = [];
   history: HandRecord[] = [];
   scoreboardByCategory: { [message: string]: number } = {};
-  scoreboardArray = [];
+  scoreboardByCategoryArray = [];
+
+  scoreboardByCard: { [cardname: string]: { [message: string]: number } } = {};
+  scoreboardByCardArray = [];
 
   handCategories = [{ name: "Good" }, { name: "Bad" }];
 
   ngOnInit() {
     try {
-      this.cards = this.cardParser.parseDecklist().slice(0, this.cardParser.cards.length);
+      this.cards = this.cardParser
+        .parseDecklist()
+        .slice(0, this.cardParser.cards.length);
     } catch (err) {
       this.router.navigate(["/"]);
     }
@@ -56,19 +61,50 @@ export class OpeningHandSimulationComponent implements OnInit {
   }
 
   recordHand(hand: string[], message: string) {
+    // global stats
     this.history.unshift(new HandRecord(hand, message));
     if (this.scoreboardByCategory[message] == undefined) {
       this.scoreboardByCategory[message] = 0;
     }
     this.scoreboardByCategory[message] += 1;
-    let scores = Object.keys(this.scoreboardByCategory).map(k => {
+    var scores = Object.keys(this.scoreboardByCategory).map(k => {
       return [this.scoreboardByCategory[k], k];
     });
     scores.sort((a: number[], b: number[]) => {
       return a[0] - b[0];
     });
     scores.reverse();
-    this.scoreboardArray = scores;
+    this.scoreboardByCategoryArray = scores;
+
+    // card by card scores
+    hand.forEach((cardname: string, index: number) => {
+      if (this.scoreboardByCard[cardname] === undefined) {
+        this.scoreboardByCard[cardname] = {};
+      }
+      if (this.scoreboardByCard[cardname][message] === undefined) {
+        this.scoreboardByCard[cardname][message] = 0;
+      }
+      this.scoreboardByCard[cardname][message] += 1;
+
+      this.scoreboardByCardArray = Object.keys(this.scoreboardByCard).map(
+        (name: string) => {
+          var categoryCounts = Object.keys(this.scoreboardByCard[name]).map(
+            (msg: string) => {
+              return [this.scoreboardByCard[name][msg], msg];
+            }
+          );
+          categoryCounts.sort((a: number[], b: number[]) => {
+            return b[0] - a[0];
+          });
+          return [name, categoryCounts];
+        }
+      );
+      this.scoreboardByCardArray.sort((a: any[], b: any[]) => {
+        return +(a[0] > b[0]);
+      });
+    });
+
+    // new hand
     this.newHand();
   }
 }
