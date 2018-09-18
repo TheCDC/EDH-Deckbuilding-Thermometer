@@ -1,25 +1,28 @@
+.component {
+  background-color: grey;
+}
+
 .hand {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   flex-shrink: 1;
-  flex-basis: 0%;
+
+  margin: 0.5em;
+  padding: 0.5em;
+
+  background-color: lightgrey;
 }
 
-.hand img{
-    width: 100%;
-}
 
-.handCategories{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex-grow: 1;
-    justify-content: space-around
-  
+.handCategories {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  justify-content: space-around;
 }
-.handCategories > button{
-    flex-grow: 1;
-    margin: 2em;
-    
+.handCategories > button {
+  flex-grow: 1;
+  margin: 0.1em;
 }
