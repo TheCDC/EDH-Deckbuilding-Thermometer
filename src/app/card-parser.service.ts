@@ -9,11 +9,11 @@ function hasNumber(myString) {
   providedIn: "root"
 })
 export class CardParserService {
-  rawCardText: string = '';
+  rawCardText: string = "";
   cards: string[];
   constructor() {}
 
-  consumeCardText(s: string){
+  consumeCardText(s: string) {
     this.rawCardText = s;
   }
 
@@ -29,6 +29,13 @@ export class CardParserService {
       var tokens = line.split(" ");
       var hasNum = false;
       var numCopies = 1;
+
+      while (
+        tokens.length > 0 &&
+        tokens[tokens.length - 1].indexOf("#") !== -1
+      ) {
+        tokens.pop();
+      }
 
       if (hasNumber(tokens[0])) {
         numCopies = parseInt(tokens[0]);
