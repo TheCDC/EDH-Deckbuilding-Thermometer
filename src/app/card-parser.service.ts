@@ -15,7 +15,6 @@ export class CardParserService {
 
   consumeCardText(s: string){
     this.rawCardText = s;
-
   }
 
   parseDecklist() {
