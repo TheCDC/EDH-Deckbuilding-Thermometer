@@ -11,6 +11,7 @@ export class CardDisplayComponent implements OnInit {
   cardname: string;
   cardJSON;
   objstr;
+  loading: boolean = true;
   constructor(private http: Http) {}
 
   ngOnInit() {
@@ -20,6 +21,7 @@ export class CardDisplayComponent implements OnInit {
       .then(response => {
         this.cardJSON = response.json();
         this.objstr = JSON.stringify(this.cardJSON);
+        this.loading = false;
       });
   }
 }

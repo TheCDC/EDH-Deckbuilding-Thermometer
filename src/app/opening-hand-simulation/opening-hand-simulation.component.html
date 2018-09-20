@@ -8,7 +8,10 @@
   </div>
   <div>
     <h2>Your Deck</h2>
-    {{cardParser.rawCardText}}
+    <pre>
+
+{{cardParser.rawCardText}}
+    </pre>
 
   </div>
   <div>
@@ -39,14 +42,18 @@
         {{pair[0]}}: {{pair[1]}}
       </p>
       <h4>By card</h4>
-      <div>
-        <div *ngFor="let item of scoreboardByCardArray">
-          {{item[0]}}
-          <ul>
-            <li *ngFor="let i of item[1]">
+      <div class="byCard">
+        <div *ngFor="let item of scoreboardByCardArray" class="singleCardSummary">
+          <span class="cardName">
+
+            {{item[0]}}
+          </span>
+          <span class="messageScores">
+
+            <span *ngFor="let i of item[1]" class="messageScore">
               {{i}}
-            </li>
-          </ul>
+            </span>
+          </span>
         </div>
       </div>
     </div>

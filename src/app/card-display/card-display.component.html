@@ -1,10 +1,20 @@
 <div>
-  <div>
+  <div *ngIf="loading">
     <!-- {{objstr}} -->
+    {{cardname}}
 
   </div>
-  <div *ngIf="cardJSON">
-    <img *ngIf="cardJSON.image_uris.small" src="{{cardJSON.image_uris.small}}" alt="{{cardname}}">
+  <div *ngIf="!isLoading && cardJSON !== undefined ">
+      <div *ngIf="cardJSON.image_uris !== undefined">
+          <img *ngIf="cardJSON.image_uris.small" src="{{cardJSON.image_uris.small}}" alt="{{cardname}}">
+      
+        </div>
+        <div *ngIf="cardJSON.card_faces !== undefined">
+          <img *ngIf="cardJSON.card_faces[0].image_uris.small " src="{{cardJSON.card_faces[0].image_uris.small}}" alt="{{cardname}}">
+      
+        </div>
+      
+      
   </div>
-
+  
 </div>
