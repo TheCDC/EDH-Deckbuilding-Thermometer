@@ -13,6 +13,16 @@ This application simulates drawing opening hands and you mark each one as good o
 You will be presented with an opening hand of 7 or 8 cards (configurable for 1v1 or multiplayer). Select either 'Keep' or another button indicating the flaw(s) in that hand. Click 'Next' to be presented with the next hand. At any time you can switch to the summary of all reviewed hands in order to identify areas of your deck that need tuning.
 
 
+# Screenshots
+
+## Deck Editor
+![Deck editor](screenshots/screencapture-localhost-4200-2018-09-20-14_18_35.png)
+
+## Simulation in progress
+![Simulation results](screenshots/screencapture-localhost-4200-simulate-2018-09-20-14_17_55.png)
+
+
+
 # EdhDeckbuildingThermometer
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.
